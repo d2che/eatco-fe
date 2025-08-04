@@ -7,7 +7,7 @@ function App() {
     <div className="w-full max-w-[390px] mx-auto min-h-screen bg-white font-pretendard">
       <Header />
 
-      <main>
+      <main className="overflow-hidden">
         <Banner />
         <PriceComparison />
       </main>
