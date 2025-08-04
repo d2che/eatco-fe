@@ -1,7 +1,36 @@
+import { useHorizontalSwipe } from "../hooks/useHorizontalSwipe"; // 1. 커스텀 훅 불러오기
+
 // 나중에 API로 받아올 데이터의 임시 형태입니다.
 const comparisonItems = [
   {
     name: "뿌링클",
+    imageUrl: "https://placehold.co/200x120",
+    prices: [
+      { platform: "쿠팡이츠", price: 19500 },
+      { platform: "배달의민족", price: 20500 },
+      { platform: "땡겨요", price: 21000 },
+    ],
+  },
+  {
+    name: "후라이드",
+    imageUrl: "https://placehold.co/200x120",
+    prices: [
+      { platform: "쿠팡이츠", price: 19500 },
+      { platform: "배달의민족", price: 20500 },
+      { platform: "땡겨요", price: 21000 },
+    ],
+  },
+  {
+    name: "후라이드",
+    imageUrl: "https://placehold.co/200x120",
+    prices: [
+      { platform: "쿠팡이츠", price: 19500 },
+      { platform: "배달의민족", price: 20500 },
+      { platform: "땡겨요", price: 21000 },
+    ],
+  },
+  {
+    name: "후라이드",
     imageUrl: "https://placehold.co/200x120",
     prices: [
       { platform: "쿠팡이츠", price: 19500 },
@@ -85,10 +114,14 @@ const ComparisonCard = ({ item }: { item: (typeof comparisonItems)[0] }) => {
 
 // 최종적으로 내보낼(export) 가격 비교 섹션 컴포넌트입니다.
 export default function PriceComparison() {
+  const swipeRef = useHorizontalSwipe();
   return (
     <section className="pt-[30px] space-y-4 overflow-hidden">
       <h2 className="text-stone-900 text-xl font-bold px-[20px]">가격비교</h2>
-      <div className="flex gap-4 overflow-x-auto pb-4 -mx-5 px-5 scroll-smooth snap-x snap-mandatory scrollbar-hide">
+      <div
+        ref={swipeRef}
+        className="flex gap-4 overflow-x-auto pb-4 -mx-5 px-5 scroll-smooth snap-x snap-mandatory scrollbar-hide"
+      >
         {comparisonItems.map((item) => (
           <div className="snap-center">
             {/* 스크롤 시 카드 중앙에 멈추도록 snap-center 추가 흠 필요할까? */}
