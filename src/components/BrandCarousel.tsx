@@ -1,4 +1,4 @@
-// import { useHorizontalSwipe } from "../hooks/useHorizontalSwipe"; // PC 스와이프 훅
+import { useHorizontalSwipe } from "../hooks/useHorizontalSwipe"; // PC 스와이프 훅
 
 // 이 컴포넌트가 받을 데이터의 타입을 미리 정의합니다.
 type Brand = {
@@ -37,7 +37,7 @@ const BrandCard = ({ brand }: { brand: Brand }) => (
 
 // 태그, 제목, 브랜드 목록 데이터를 props로 받는 재사용 가능한 캐러셀 컴포넌트
 export default function BrandCarousel({ tag, title, brands }: Props) {
-  // const swipeRef = useHorizontalSwipe();
+  const swipeRef = useHorizontalSwipe();
 
   return (
     <section className="p-5 space-y-4">
@@ -68,7 +68,7 @@ export default function BrandCarousel({ tag, title, brands }: Props) {
         </button>
       </div>
       <div
-        // ref={swipeRef}
+        ref={swipeRef}
         className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide"
       >
         {brands.map((brand) => (

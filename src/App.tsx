@@ -128,7 +128,7 @@ function App() {
     <div className="w-full max-w-[390px] mx-auto min-h-screen bg-white font-pretendard">
       <Header />
 
-      <main className="overflow-hidden">
+      <main>
         <Banner />
         <PriceComparison />
         <BrandCarousel

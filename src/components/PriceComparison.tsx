@@ -89,7 +89,7 @@ const ComparisonCard = ({ item }: { item: (typeof comparisonItems)[0] }) => {
 
       <div className="bg-white flex flex-col flex-grow">
         <div
-          className="w-[200px] h-[120px] bg-zinc-300 rounded-md bg-cover bg-center"
+          className="w-[200px] h-[120px] bg-zinc-300 bg-cover bg-center"
           style={{ backgroundImage: `url(${item.imageUrl})` }}
         />
       </div>
@@ -112,8 +112,8 @@ const ComparisonCard = ({ item }: { item: (typeof comparisonItems)[0] }) => {
 export default function PriceComparison() {
   const swipeRef = useHorizontalSwipe();
   return (
-    <section className="pt-[30px] space-y-4">
-      <h2 className="text-stone-900 text-xl font-bold px-[20px]">가격비교</h2>
+    <section className="p-5 space-y-4">
+      <h2 className="text-stone-900 text-xl font-bold">가격비교</h2>
       <div
         ref={swipeRef}
         className="flex gap-4 overflow-x-auto pb-4 -mx-5 px-5 scroll-smooth snap-x snap-mandatory scrollbar-hide"
