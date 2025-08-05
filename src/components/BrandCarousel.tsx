@@ -1,4 +1,5 @@
 import { useHorizontalSwipe } from "../hooks/useHorizontalSwipe"; // PC 스와이프 훅
+import { Link } from "react-router-dom"; // 1. Link를 import 합니다.
 
 // 이 컴포넌트가 받을 데이터의 타입을 미리 정의합니다.
 type Brand = {
@@ -48,7 +49,10 @@ export default function BrandCarousel({ tag, title, brands }: Props) {
           </span>
           <h2 className="text-stone-900 text-xl font-bold">{title}</h2>
         </div>
-        <button className="flex items-center text-neutral-400 text-xs font-medium">
+        <Link
+          to="/brands"
+          className="flex items-center text-neutral-400 text-xs font-medium"
+        >
           더보기
           <svg
             width="24"
@@ -65,7 +69,7 @@ export default function BrandCarousel({ tag, title, brands }: Props) {
               strokeLinejoin="round"
             />
           </svg>
-        </button>
+        </Link>
       </div>
       <div
         ref={swipeRef}
