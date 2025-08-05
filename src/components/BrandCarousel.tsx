@@ -46,14 +46,17 @@ export default function BrandCarousel({ tag, title, brands, moreLink }: Props) {
       <div className="flex justify-between items-center">
         <div className="flex items-center gap-1.5">
           <span className="px-2 py-0.5 bg-red-400 text-white text-xs font-bold rounded-md">
-            {tag}
+            {tag} {/* 'tag' prop 사용 */}
           </span>
-          <h2 className="text-stone-900 text-xl font-bold">{title}</h2>
+          <h2 className="text-stone-900 text-xl font-bold">{title}</h2>{" "}
+          {/* 'title' prop 사용 */}
         </div>
         <Link
           to={moreLink}
           className="flex items-center text-neutral-400 text-xs font-medium"
         >
+          {" "}
+          {/* 'Link' 컴포넌트 사용 */}
           더보기
           <svg
             width="24"
@@ -72,10 +75,12 @@ export default function BrandCarousel({ tag, title, brands, moreLink }: Props) {
           </svg>
         </Link>
       </div>
+
       <div
         ref={swipeRef}
-        className="flex gap-3 overflow-x-auto pb-2 scrollbar-hide"
+        className="grid grid-flow-col auto-cols-[112px] gap-3 overflow-x-auto pb-2 scrollbar-hide"
       >
+        {/* .map 부분은 수정할 필요 없습니다. */}
         {brands.map((brand) => (
           <BrandCard key={brand.id} brand={brand} />
         ))}
