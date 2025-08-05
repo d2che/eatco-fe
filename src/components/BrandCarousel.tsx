@@ -14,6 +14,7 @@ type Props = {
   tag: string;
   title: string;
   brands: Brand[];
+  moreLink: string;
 };
 
 // 브랜드 카드 UI를 위한 작은 컴포넌트
@@ -37,7 +38,7 @@ const BrandCard = ({ brand }: { brand: Brand }) => (
 );
 
 // 태그, 제목, 브랜드 목록 데이터를 props로 받는 재사용 가능한 캐러셀 컴포넌트
-export default function BrandCarousel({ tag, title, brands }: Props) {
+export default function BrandCarousel({ tag, title, brands, moreLink }: Props) {
   const swipeRef = useHorizontalSwipe();
 
   return (
@@ -50,7 +51,7 @@ export default function BrandCarousel({ tag, title, brands }: Props) {
           <h2 className="text-stone-900 text-xl font-bold">{title}</h2>
         </div>
         <Link
-          to="/brands"
+          to={moreLink}
           className="flex items-center text-neutral-400 text-xs font-medium"
         >
           더보기
