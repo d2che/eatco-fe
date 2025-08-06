@@ -2,6 +2,8 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import BrandListPage from "./pages/BrandListPage";
 import ValueBrandListPage from "./pages/ValueBrandListPage";
+import MenuPage from "./pages/MenuPage";
+import PriceDetailPage from "./pages/PriceDetailPage";
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/brands/popular" element={<BrandListPage />} />
         <Route path="/brands/value" element={<ValueBrandListPage />} />
+        <Route path="/brand/:brandName" element={<MenuPage />} />
+        <Route path="/menu/:menuName" element={<PriceDetailPage />} />
       </Routes>
     </div>
   );

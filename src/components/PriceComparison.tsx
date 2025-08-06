@@ -1,4 +1,5 @@
 import { useHorizontalSwipe } from "../hooks/useHorizontalSwipe"; // 1. 커스텀 훅 불러오기
+import { Link } from "react-router-dom";
 
 // 나중에 API로 받아올 데이터의 임시 형태입니다.
 const comparisonItems = [
@@ -82,29 +83,31 @@ const PriceRow = ({
 const ComparisonCard = ({ item }: { item: (typeof comparisonItems)[0] }) => {
   const lowestPrice = Math.min(...item.prices.map((p) => p.price));
   return (
-    <div className="w-[200px] h-[278px] flex-shrink-0 flex flex-col shadow-lg rounded-lg overflow-hidden">
-      <div className="py-2 text-center bg-gradient-to-l from-orange-400 to-red-400">
-        <h3 className="text-white text-base font-bold">{item.name}</h3>
-      </div>
+    <Link to={`/menu/${item.name}`}>
+      <div className="w-[200px] h-[278px] flex-shrink-0 flex flex-col shadow-lg rounded-lg overflow-hidden">
+        <div className="py-2 text-center bg-gradient-to-l from-orange-400 to-red-400">
+          <h3 className="text-white text-base font-bold">{item.name}</h3>
+        </div>
 
-      <div className="bg-white flex flex-col flex-grow">
-        <div
-          className="w-[200px] h-[120px] bg-zinc-300 bg-cover bg-center"
-          style={{ backgroundImage: `url(${item.imageUrl})` }}
-        />
-      </div>
-
-      {/* 가격 정보 영역 */}
-      <div className="flex flex-col gap-3 pt-4 px-4 pb-4">
-        {item.prices.map((p) => (
-          <PriceRow
-            key={p.platform}
-            {...p}
-            isLowest={p.price === lowestPrice}
+        <div className="bg-white flex flex-col flex-grow">
+          <div
+            className="w-[200px] h-[120px] bg-zinc-300 bg-cover bg-center"
+            style={{ backgroundImage: `url(${item.imageUrl})` }}
           />
-        ))}
+        </div>
+
+        {/* 가격 정보 영역 */}
+        <div className="flex flex-col gap-3 pt-4 px-4 pb-4">
+          {item.prices.map((p) => (
+            <PriceRow
+              key={p.platform}
+              {...p}
+              isLowest={p.price === lowestPrice}
+            />
+          ))}
+        </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
