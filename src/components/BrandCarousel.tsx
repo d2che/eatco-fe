@@ -23,7 +23,7 @@ const BrandCard = ({ brand }: { brand: Brand }) => (
     <img
       src={brand.imageUrl}
       alt={brand.name}
-      className="w-full h-28 rounded-lg bg-gray-200 object-cover"
+      className="w-full h-28 rounded-lg bg-gray-200 object-contain p-2"
     />
     <div className="font-bold text-stone-900 text-sm truncate">
       {brand.name}
